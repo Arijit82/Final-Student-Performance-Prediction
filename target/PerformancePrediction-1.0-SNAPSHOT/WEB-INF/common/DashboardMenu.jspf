@@ -1,0 +1,83 @@
+
+
+<!-- Bootstrap core CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet" type="text/css"/>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+</head>
+
+<body>
+    <!--<div class="row">-->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <!--<div class="col-sm-2 text-left">-->
+
+        <img src="images/logo.png"  alt="logo.png"  style="height: 50px; width: 50px;">
+
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Performance Prediction</a>
+
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="Logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <!--</div>-->
+    <%
+        String role = (String) session.getAttribute("role");
+        System.out.println("from jsp:" + role);
+    %>
+
+    
+  
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Dashboard">
+                                <span data-feather= "home"></span>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">  
+
+                            <a class="nav-link" href="profile">
+                                <span data-feather="file"></span>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="ManageStudent">
+                                <span data-feather="users"></span>
+                                Students
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ManageTeacher" <% if (role.equals("teacher")) { %>
+                               style="visibility: hidden" 
+                               <% }%>
+                               >
+                                <span data-feather="users"></span>
+                                Teachers
+                            </a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="MailParent" <% if (role.equals("teacher")) { %>
+                               style="visibility: hidden" 
+                               <% }%>
+                               >
+                                <span data-feather="users"></span>
+                                Mail
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </nav>
