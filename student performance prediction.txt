@@ -1,0 +1,97 @@
+
+
+create TABLE students(
+  StudentId integer PRIMARY KEY,
+  FullName varchar (50) NOT NULL,
+  Address varchar (50) NOT NULL,
+  Gender char(1),
+  DOB Date,
+  Age number(10),
+  DateOfAdmission DATE,
+  ParentName varchar(30) not null,
+  Email varchar(30) unique not null,
+  PhoneNo varchar(10),
+  Medu Number,
+  Fedu Number
+);
+
+
+create TABLE Teachers(
+  TeacherId integer NOT NULL PRIMARY KEY,
+  TeacherName varchar(50),
+  Address varchar(50),
+  Contact varchar(15),
+  Email varchar(50),
+  AssignedSubject varchar(30),    
+  TPassword varchar(32),
+  Role varchar(10)
+);
+
+create TABLE Teacher_Question(
+ TeacherQId integer primary key,
+ TeacherId  integer  REFERENCES teachers(TeacherId),
+ StudentId integer REFERENCES students(StudentId),
+ G1 number(12,4),
+ G2 number(12,4),
+ Absences integer,
+ Activities integer,
+ DateOfSubmission date
+);
+
+
+CREATE TABLE Parent_Question(
+  ParentQId integer primary key ,
+  StudentId integer REFERENCES students(studentId),
+  Famsize integer,
+  Pstatus integer,
+  Traveltime  integer,
+  Studytime integer,
+  Failures integer,
+  Schoolsup integer,
+  Famsup integer,
+  Paid integer,
+  Internet integer,
+  Famrel integer,
+  Freetime integer,
+  Goout integer,
+   Health integer,
+  DateOfSubmission date
+);
+
+ create table predictedoutput(
+  poid integer primary key,
+   StudentId integer REFERENCES students(studentId),
+   regoutput number(12,4),
+   idout varchar(10)
+ );
+
+Create sequence studentidseq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 10000;
+
+Create sequence teacheridseq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 10000;
+
+Create sequence parentquestionidseq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 10000;
+
+
+Create sequence teacherquestionidseq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 10000;
+
+Create sequence poidSeq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 10000;
