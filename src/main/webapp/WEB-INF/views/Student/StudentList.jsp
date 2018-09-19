@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String message = (String)request.getAttribute("alertMsg");%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -94,6 +95,13 @@
     </main>
 </div>
 </div>
+<c:if test="${not empty alertMsg}">
+  <script type="text/javascript">
+    var msg = "<%=message%>";
+    alert(msg);
+</script>
+</c:if>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

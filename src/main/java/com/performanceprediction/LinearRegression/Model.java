@@ -13,7 +13,7 @@ public class Model {
     static Connection currentCon = null;
     static ResultSet rs = null;
     Statement stmt = null;
-    double output;
+    double output=0.0;
 
     public LinkedHashMap<String, Double> parameters;
     public String dependent;
@@ -93,6 +93,7 @@ public class Model {
             // if user does not exist set the isValid variable to false
             if (!more) {
                 System.out.println("Sorry,Data not Found");
+               return output;
 
             } //if user exists set the isValid variable to true
             else if (more) {

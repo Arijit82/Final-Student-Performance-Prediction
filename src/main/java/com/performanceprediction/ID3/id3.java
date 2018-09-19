@@ -30,7 +30,7 @@ public class id3 {
     Statement stmt = null;
 
     private Instances trainingData;
-    String results;
+    String results="default";
 
     public id3() {
 
@@ -64,6 +64,7 @@ public class id3 {
                 // if user does not exist set the isValid variable to false
                 if (!more) {
                     System.out.println("Sorry,Data not Found");
+                    return results;
 
                 } //if user exists set the isValid variable to true
                 else if (more) {
