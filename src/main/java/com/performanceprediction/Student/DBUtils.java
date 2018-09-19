@@ -23,8 +23,10 @@ public class DBUtils {
         String pass = "sppd";
         
         Connection con = DriverManager.getConnection(url, user, pass);
-        ps = con.prepareStatement(sql);
-        
+       
+               ps = con.prepareStatement(sql);
+  
         return ps;
+          
     }
 }

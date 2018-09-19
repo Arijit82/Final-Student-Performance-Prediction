@@ -11,6 +11,7 @@ com\performanceprediction\Logout\LogoutServlet.class
 com\performanceprediction\Login\UserBean.class
 com\performanceprediction\Dashboard\ManageStudent\ManageStudent.class
 com\performanceprediction\LinearRegression\Model.class
+com\performanceprediction\Parent\SendMail$1.class
 com\performanceprediction\Student\PredictedOutput\PredictedResults.class
 com\performanceprediction\ID3\ID3TestInstanceBean.class
 com\performanceprediction\connection\ConnectionManager.class
@@ -40,5 +41,6 @@ com\performanceprediction\LinearRegression\FileHandler.class
 com\performanceprediction\Parent\MailParent.class
 com\performanceprediction\Dashboard\Dashboard.class
 com\performanceprediction\LinearRegression\LinearRegression.class
+com\performanceprediction\Parent\SendMail.class
 com\performanceprediction\ID3\id3.class
 com\performanceprediction\Login\UserDAO.class

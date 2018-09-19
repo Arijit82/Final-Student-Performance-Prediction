@@ -100,13 +100,15 @@ public class StudentDAO {
             ps.setString(4, dob);
             ps.setInt(5, age);
             ps.setString(6, DateOfAdmission);
-            ps.setInt(7, student_id);
-            ps.setString(8, pname);
-            ps.setString(9, email);
-            ps.setString(10, phoneno);
-            ps.setInt(11, medu);
-            ps.setInt(12, fedu);
+            ps.setString(7, pname);
+            ps.setString(8, email);
+            ps.setString(9, phoneno);
+            ps.setInt(10, medu);
+            ps.setInt(11, fedu);
+             ps.setInt(12, student_id);
+            
             ps.executeUpdate();
+            
             System.out.println("Records uptated at studentid" + student_id);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
