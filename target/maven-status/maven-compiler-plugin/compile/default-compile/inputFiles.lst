@@ -2,6 +2,7 @@ R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performancepredi
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\LinearRegression\FileHandler.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Student\StudentBean.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Teacher\EditTeacher.java
+R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Parent\SendMail.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Teacher\DeleteTeacher.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Teacher\TeacherList.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Teacher\DBUtils.java
@@ -9,7 +10,6 @@ R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performancepredi
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Student\AddNewStudent.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Student\ViewReport.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Student\StudentDAO.java
-R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Parent\MailForm.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Login\UserDAO.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Dashboard\ManageTeacher\ManageTeacher.java
 R:\WorkPlace\New folder\PerformancePrediction\src\main\java\com\performanceprediction\Student\EditStudent.java
