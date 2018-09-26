@@ -49,10 +49,9 @@
                         <input type="text" placeholder="Email" name="email" id="email" required/>
                         <input type="password" placeholder="Password" name="password" id="password" required/>
                         <span id="spnpassword" class="text-danger"></span>
-                        <p class="message"><input type="checkbox" value="remember_me" name="remember_me" checked>Remember me?</p>
+                        <!--<p class="message"><input type="checkbox" value="remember_me" name="remember_me" checked>Remember me?</p>-->
                         <a href="dashboard.jsp">
-                            <button type="submit">Login</button></a>
-
+                        <button type="submit">Login</button></a>
                     </form>
                 </div>
             </div>

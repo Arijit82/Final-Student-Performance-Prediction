@@ -53,6 +53,7 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Loginservlet CurrentUser" + request.getSession().getAttribute("currentUserEmail"));
                 // request.setAttribute("email", user.getEmail());
                 System.out.println("Role" + user.getRole());
+               
                 request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
 //                if (user.getRole().equals("admin")) {
 //

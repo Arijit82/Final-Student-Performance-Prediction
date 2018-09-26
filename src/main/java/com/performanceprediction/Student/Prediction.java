@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
  *
  * @author sanji
@@ -30,38 +31,33 @@ public class Prediction extends HttpServlet {
         int id = Integer.parseInt(idTemp);
         LinearRegression lr = new LinearRegression();
         double lrpredictedvalue = lr.LRpredictedvalue(id);
-        
-       
 
 //        request.setAttribute("output", lrpredictedvalue);
 //        request.setAttribute("getStudentById", StudentDAO.getStudentById(id));
 //        //   request.setAttribute("tval", testValue);
 //        System.out.println("Predictedvalue of student id=" + lrpredictedvalue);
-
         id3 idthree = new id3();
         String id3predictedvalue = idthree.id3predictedvalue(id);
 //        request.setAttribute("id3output", id3predictedvalue);
 //        System.out.println("id3predictedvalue" + id3predictedvalue);
-        
-         if(lrpredictedvalue==0.0 || id3predictedvalue.equals("default")){
+
+        if (lrpredictedvalue == 0.0 || id3predictedvalue.equals("default")) {
             request.setAttribute("alertMsg", "Please ask teachers/parents to fill the form");
-             System.out.println("Please ask teachers/parents to fill the form");
-             
-             RequestDispatcher rd=request.getRequestDispatcher("ManageStudent");  
+            System.out.println("Please ask teachers/parents to fill the form");
+
+            RequestDispatcher rd = request.getRequestDispatcher("ManageStudent");
             rd.include(request, response);
-        }
-         else
-         {
-               request.setAttribute("output", lrpredictedvalue);
-        request.setAttribute("getStudentById", StudentDAO.getStudentById(id));
-        //   request.setAttribute("tval", testValue);
-        System.out.println("Predictedvalue of student id=" + lrpredictedvalue);
-        
-         request.setAttribute("id3output", id3predictedvalue);
-        System.out.println("id3predictedvalue" + id3predictedvalue);
-        
-        
-          PredictedOutputBean pobean = new PredictedOutputBean();
+        } else {
+            request.setAttribute("output", lrpredictedvalue);
+            request.setAttribute("getStudentById", StudentDAO.getStudentById(id));
+            //   request.setAttribute("tval", testValue);
+            System.out.println("student id=" + id);
+            System.out.println("Predictedvalue of student is=" + lrpredictedvalue);
+
+            request.setAttribute("id3output", id3predictedvalue);
+            System.out.println("id3predictedvalue" + id3predictedvalue);
+
+            PredictedOutputBean pobean = new PredictedOutputBean();
             pobean.setStdid(id);
             pobean.setRegout(lrpredictedvalue);
             pobean.setIdout(id3predictedvalue);
@@ -69,34 +65,17 @@ public class Prediction extends HttpServlet {
             PredictedOutputDAO poDAO = new PredictedOutputDAO();
             poDAO.addPredictedOutput(pobean);
 
+           
+        
+            request.setAttribute("stdid", id);
             request.getRequestDispatcher("/WEB-INF/views/Student/predictedoutput.jsp").forward(request, response);
-         }
-        
-        
-        boolean data = (lrpredictedvalue == 0.00) && (id3predictedvalue.equals("null"));
-            System.out.println("Data: "+data);
-//        if (!data) {
-//            System.out.println("Invalid No Data");
-//            request.setAttribute("SorryMessage", "Sorry Either Teacher or Parent have not filled th form");
-//            response.sendRedirect("ManageStudent");
-//        } else {
-            //stores the predicted value
-            
-            
-//            PredictedOutputBean pobean = new PredictedOutputBean();
-//            pobean.setStdid(id);
-//            pobean.setRegout(lrpredictedvalue);
-//            pobean.setIdout(id3predictedvalue);
-//
-//            PredictedOutputDAO poDAO = new PredictedOutputDAO();
-//            poDAO.addPredictedOutput(pobean);
-//
-//            request.getRequestDispatcher("/WEB-INF/views/Student/predictedoutput.jsp").forward(request, response);
+        }
 
-       // }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
