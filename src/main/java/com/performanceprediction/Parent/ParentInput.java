@@ -22,6 +22,9 @@ public class ParentInput extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+               String idTemp = request.getParameter("id");
+        int id = Integer.parseInt(idTemp);
+        request.setAttribute("sid", id);
         request.getRequestDispatcher("/WEB-INF/views/Parent/parents_input.jsp").forward(request, response);
     }
 
@@ -34,8 +37,9 @@ public class ParentInput extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         int sid= Integer.parseInt(request.getParameter("sid"));
+        System.out.println("sid parent input="+sid);
         int famsize = Integer.parseInt(request.getParameter("famsize"));
         int pstatus = Integer.parseInt(request.getParameter("pstatus"));
         int traveltime = Integer.parseInt(request.getParameter("traveltime"));

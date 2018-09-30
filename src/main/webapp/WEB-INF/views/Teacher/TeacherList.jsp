@@ -58,8 +58,8 @@
                             <td>${t.assignedsubject}</td> 
                         
                             <td>
-                                <a href="EditTeacher?id=${t.teacherid}">Edit</a>
-                                <a href="DeleteTeacher?id=${t.teacherid}">Delete</a>
+                                <a class="btn"href="EditTeacher?id=${t.teacherid}">Edit</a>
+                                <a class="btn" href="DeleteTeacher?id=${t.teacherid}">Delete</a>
 
                             </td>
                         </tr>

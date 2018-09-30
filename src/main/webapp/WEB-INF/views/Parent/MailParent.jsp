@@ -99,12 +99,10 @@
 
                             <td>
                                 <% if (role.equals("admin")) { %>
-                                <a href="SendMail?id=${p.student_id}&stdname=${p.studentname}&email=${p.email}"
-                                   onclick="myFunction()">SendMail</a>
+                                <a class="btn" href="SendMail?id=${p.student_id}&stdname=${p.studentname}&email=${p.email}"
+                                   onclick="myFunction()">Send Mail</a>
 
                                 <% }%>
-
-
                             </td>
                         </tr>
                     </c:forEach>

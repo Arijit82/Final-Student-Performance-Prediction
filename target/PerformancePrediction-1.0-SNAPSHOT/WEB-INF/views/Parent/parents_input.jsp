@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+int id= (int)request.getAttribute("sid");
+System.out.println("par inputid="+id);
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +24,7 @@
                 .form-container{
                     width: 100%;
                     height: 100%;
-                    background: #76b852;
+                    /*background: #76b852;*/
                 }
                 .form-page{
                     width: 760px;
@@ -81,12 +85,12 @@
             <div class="jumbotron form-container">
                 
                 <form class="needs-validation form form-page" method="post" action="ParentInput"> 
-                    <h2>Student Information</h2>
+                    <h2><b>Parent Input Form</b></h2>
                     <hr>
                     <div class="form-check form-check-inline">
-                        <label class="form-control-plaintext label1">Student ID</label> <input style="background:#fff; border:1px solid #666666" type="text" name="sid">
+                        <label class="form-control-plaintext label1"><b>Student ID: </b></label> <b><input type="text" style="margin-left: 5px; background: white;" name="sid" value="<%=id %>" readonly ></label></b>
                     </div>
-                    <label class="form-control-plaintext">Family Size</label>
+                    <label class="form-control-plaintext"><b>Family Size</b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="famsize" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Greater Than 3</label>
@@ -96,7 +100,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2">Less Than 3</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Parent Status </label>
+                    <label class="form-control-plaintext"><b>Parent Status </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="pstatus" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Living Together</label>
@@ -106,7 +110,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2">Apart</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Travel Time from Home to School</label>
+                    <label class="form-control-plaintext"><b>Travel Time from Home to School</b></label>
 
                     <div class="form-check form-check-inline">
                         <input type="radio" name="traveltime" id="inlineRadio1" value="1" checked>
@@ -125,7 +129,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2">>1 hour</label>
                     </div>
                     <!--                            <div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Study Time at Home</label>
+                    <label class="form-control-plaintext"><b>Study Time at Home</b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="studytime" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1"> <2 hours</label>
@@ -143,7 +147,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> >10 hours</label>
                     </div>
                     <!--                                                <div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Past Class Failures </label>
+                    <label class="form-control-plaintext"><b>Past Class Failures </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="failure" id="inlineRadio1" value="0" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">0</label>
@@ -165,7 +169,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> 4</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Extra Educational Support  </label>
+                    <label class="form-control-plaintext"><b>Extra Educational Support  </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="schoolsup" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Yes</label>
@@ -175,7 +179,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> No</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext">Family Educational Support  </label>
+                    <label class="form-control-plaintext"><b>Family Educational Support  </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="famsup" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Yes</label>
@@ -185,7 +189,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> No</label>
                     </div>
                     <!--                                                                                                <div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> extra paid classes within the course subject  </label>
+                    <label class="form-control-plaintext"><b> Extra paid classes within the course subject  </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="paid" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Yes</label>
@@ -195,7 +199,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> No</label>
                     </div>
                     <!--                                                                                                            <div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> Internet  </label>
+                    <label class="form-control-plaintext"><b> Internet  </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="internet" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Yes</label>
@@ -205,7 +209,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> No</label>
                     </div>
                     <!--                                                                                                                        <div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> quality of family relationships   </label>
+                    <label class="form-control-plaintext"><b> Quality of family relationships   </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="famrel" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Very Bad</label>
@@ -227,7 +231,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> Excellent</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> free time after school </label>
+                    <label class="form-control-plaintext"><b> Free time after school </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="freetime" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Very low</label>
@@ -249,7 +253,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> very high</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> going out with friends  </label>
+                    <label class="form-control-plaintext"><b> Going out with friends  </b></label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="goout" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Very low</label>
@@ -271,7 +275,7 @@
                         <label class="form-control-plaintext label1" for="inlineRadio2"> very high</label>
                     </div>
                     <!--<div class="form-check form-check-inline">-->
-                    <label class="form-control-plaintext"> current health status  </label>
+                    <label class="form-control-plaintext"><b> Current health status</b>  </label>
                     <div class="form-check form-check-inline">
                         <input type="radio" name="health" id="inlineRadio1" value="1" checked>
                         <label class="form-control-plaintext label1" for="inlineRadio1">Very bad</label>

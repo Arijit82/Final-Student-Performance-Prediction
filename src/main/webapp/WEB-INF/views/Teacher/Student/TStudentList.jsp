@@ -46,12 +46,9 @@
                             <td>${p.age}</td>
                             <td>${p.dao}</td>
 
-
-
-
                             <td>
-                                <a href="TeacherInput?id=${p.student_id}">Fill Data</a>
-                                <a href="ViewReport?id=${p.student_id}">View Report</a>
+                                <a class="btn" href="TeacherInput?id=${p.student_id}">Fill Data</a>
+                                <a class="btn" href="ViewReport?id=${p.student_id}">View Report</a>
                             </td>
                         </tr>
                     </c:forEach>

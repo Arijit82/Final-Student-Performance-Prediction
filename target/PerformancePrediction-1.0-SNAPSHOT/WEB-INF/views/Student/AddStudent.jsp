@@ -23,9 +23,9 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2>New Student Information</h2>
         </div>
-        <div class="row">
+<!--        <div class="row">
             <div class="col-11"><img src="images/logo.png" class="rounded float-right" alt="logo.png" style="height: 200px; width: 200px;"></div>
-        </div>
+        </div>-->
         <form action="AddNewStudent" method="post" name="addstudent" onsubmit="return validateNewStudent()">
             <!--              <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Student ID</label>

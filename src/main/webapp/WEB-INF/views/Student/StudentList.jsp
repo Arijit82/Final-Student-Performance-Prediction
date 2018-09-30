@@ -20,6 +20,11 @@
                 margin-top: 10px;
                 margin-bottom: 10px;
             }
+            .prbtn{
+                position: absolute;
+                top: 0px;
+                left: -50px;
+            }
         </style>
 
         <%@include file="../../common/DashboardMenu.jspf" %>
@@ -30,8 +35,9 @@
         </div>
         <% if (role.equals("admin")) { %>
         <div class="row">                        
-            <div class="col"><a href="AddNewStudent"><button type="button" class="btn btn-dark btn-sm">Add New Student</button></a></div>
-       <div class="col"><a href="PredictedResults"><button type="button" class="btn btn-dark btn-sm">Predicted Results</button></a></div>
+            <div class="col-md-2"><a href="AddNewStudent"><button type="button" class="btn btn-dark btn-sm">Add New Student</button></a></div>
+       <div class="col-md-2 prbtn"><a href="PredictedResults"><button type="button" class="btn btn-dark btn-sm">Predicted Results</button></a></div>
+      
       
         </div>
         
@@ -41,7 +47,7 @@
             <span>${SorryMessage}</span>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm" style="align-content: center;">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -49,13 +55,13 @@
                         <th>Address</th>
                         <th>Gender</th>
                         <th>DOB</th>
-                        <th>Age </th>
-                        <th>Date of Admission </th>
+<!--                        <th>Age </th>-->
+<!--                        <th>Date of Admission </th>-->
                         <th>Parent Name</th>
                         <th>Email</th>
                         <th>Phone No</th>
-                        <th> Mother Edu</th>
-                        <th>Father Edu</th>
+<!--                        <th> Mother Edu</th>
+                        <th>Father Edu</th>-->
 
                     </tr>
                 </thead>
@@ -67,26 +73,27 @@
                             <td>${p.address}</td>
                             <td>${p.gender}</td>
                             <td>${p.dob}</td> 
-                            <td>${p.age}</td>
-                            <td>${p.doa}</td>
+<!--                            <td>${p.age}</td>-->
+<!--                            <td>${p.doa}</td>-->
                             <td>${p.parentName}</td>
                             <td>${p.email}</td>
                             <td>${p.phoneNo}</td>
-                            <td>${p.medu}</td>
-                            <td>${p.fedu}</td>
+<!--                            <td>${p.medu}</td>
+                            <td>${p.fedu}</td>-->
 
                             <td>
                                 <% if (role.equals("admin")) { %>
-                                <a href="EditStudent?id=${p.student_id}">Edit</a>
-                                <a href="DeleteStudent?id=${p.student_id}">Delete</a>
-                                <a href="Prediction?id=${p.student_id}">View Report</a>
+                                <a class="btn" href="EditStudent?id=${p.student_id}">Edit</a>
+                                <a class="btn" href="DeleteStudent?id=${p.student_id}">Delete</a>
+                                <a class="btn" href="Prediction?id=${p.student_id}">View Report</a>
                                 <% } else if (role.equals("teacher")) {%>
-                                <a href="TeacherInput?id=${p.student_id}">Fill Data</a>
-                                <a href="Prediction?id=${p.student_id}">View Report</a>
+                                <a class="btn" href="TeacherInput?id=${p.student_id}">Fill Data</a>
+                                <a class="btn" href="Prediction?id=${p.student_id}">View Report</a>
                                 <% }%>
 
-
+                                        
                             </td>
+                           
                         </tr>
                     </c:forEach>
                 </tbody>

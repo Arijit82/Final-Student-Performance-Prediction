@@ -10,32 +10,30 @@
 <%@page import="java.sql.*"%>
 
 <%
-    int id=(int)request.getAttribute("stdid");
+    int id = (int) request.getAttribute("stdid");
     Gson gsonObj = new Gson();
     Map<Object, Object> map = null;
     List<Map<Object, Object>> list = new ArrayList<Map<Object, Object>>();
- 
-      
 
-        Connection currentCon = ConnectionManager.getConnection();
-        Statement stmt = currentCon.createStatement();
-        ResultSet resultSet = stmt.executeQuery("select distinct tq.g1,tq.g2,po.regoutput from Teacher_Question tq join predictedoutput po on"
-                + " tq.StudentId=po.StudentId where tq.StudentId=" + id);
+    Connection currentCon = ConnectionManager.getConnection();
+    Statement stmt = currentCon.createStatement();
+    ResultSet resultSet = stmt.executeQuery("select distinct tq.g1,tq.g2,po.regoutput from Teacher_Question tq join predictedoutput po on"
+            + " tq.StudentId=po.StudentId where tq.StudentId=" + id);
 
-        while (resultSet.next()) {
-            map = new HashMap<Object, Object>();
-            map.put("label", "G1");
-            map.put("y", Double.parseDouble(resultSet.getString("g1")));
-            list.add(map);
-            map = new HashMap<Object, Object>();
-            map.put("label", "G2");
-            map.put("y", Double.parseDouble(resultSet.getString("g2")));
-            list.add(map);
-            map = new HashMap<Object, Object>();
-            map.put("label", "G3");
-            map.put("y", Double.parseDouble(resultSet.getString("regoutput")));
-            list.add(map);
-        }
+    while (resultSet.next()) {
+        map = new HashMap<Object, Object>();
+        map.put("label", "G1");
+        map.put("y", Double.parseDouble(resultSet.getString("g1")));
+        list.add(map);
+        map = new HashMap<Object, Object>();
+        map.put("label", "G2");
+        map.put("y", Double.parseDouble(resultSet.getString("g2")));
+        list.add(map);
+        map = new HashMap<Object, Object>();
+        map.put("label", "G3");
+        map.put("y", Double.parseDouble(resultSet.getString("regoutput")));
+        list.add(map);
+    }
     String dataPoints = gsonObj.toJson(list);
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -63,7 +61,7 @@
 
                 var chart = new CanvasJS.Chart("chartContainer", {
                     title: {
-                        text: "Student Performance"
+                        text: "Student Performance Prediction"
                     },
                     axisX: {
                         title: "Grade"
@@ -73,7 +71,7 @@
                     },
                     data: [{
                             type: "column",
-                            yValueFormatString: "$#,##0.0# ",
+                            yValueFormatString: "#,##0.0# ",
                             dataPoints: <%=dataPoints%>
                         }]
                 });
@@ -90,51 +88,47 @@
         </div>
 
         <c:forEach items="${getStudentById}" var="p" >  
-
-            <form style="margin: 150px;">
-                <img src="images/logo.png" alt="logo" style="height:200px; width:200px;">
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Full Name</label>
-                    <div class="col-sm-10">
-
-                        <label> ${p.studentname} </label>
-
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Address</label>
-                    <div class="col-sm-10">
-                        <label> ${p.address} </label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Gender</label>
-                    <div class="col-sm-10">
-                        <label> ${p.gender} </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <table class="col-6" style="margin: 5px; padding: 5px;">
-                        <thead>
-                        <td>Subject</td>
-                        <td>Predicted Grade (LR)</td>
-                        <td>Passed (ID3)</td>
-                        </thead>
+            <div class="row" style="margin-top: 70px;">
+            <div style="width: 50%;">
+                <table class="table">
+                    <tbody>
                         <tr>
-                            <td>Math</td>
-                            <td>${output}</td>
-                            <td>${id3output}</td>
+                            <th scope="row"></th>
+                            <th><label>Full Name</label></th>
+                            <td> <label> ${p.studentname} </label></td>
                         </tr>
-
-                    </table>
-
-                </div>
-            </form>
-
-
+                        <tr>
+                            <th scope="row"></th>
+                            <th><label>Address</label></th>
+                            <td> <label> ${p.address} </label></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <th><label>Gender</label></th>
+                            <td>  <label> ${p.gender} </label></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <th><label>Subject</label></th>
+                            <td>Math</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <th><label>Predicted Result(LR)</label></th>
+                            <th style="color: green;">${output}<br> <span style="color: grey; font-size: 10px;">out of 20</span></th>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <th><label>Predicted Grade(ID3)</label></th>
+                            <th style="color: green;">${id3output}  <br><span style="color: grey; font-size: 10px;">Yes: pass | No: Fail</span></th>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </c:forEach>
-        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
+        <div id="chartContainer" style=" width: 50%;"></div>
+            </div>
     </main>
 
     <!-- Bootstrap core JavaScript

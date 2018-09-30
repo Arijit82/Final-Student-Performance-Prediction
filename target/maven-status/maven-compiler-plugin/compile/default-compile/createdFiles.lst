@@ -43,5 +43,6 @@ com\performanceprediction\LinearRegression\Fit$Standardisation.class
 com\performanceprediction\Student\AddNewStudent.class
 com\performanceprediction\Parent\MailParent.class
 com\performanceprediction\Dashboard\Dashboard.class
+com\performanceprediction\Teacher\AddNewTeacher$1.class
 com\performanceprediction\LinearRegression\LinearRegression.class
 com\performanceprediction\ID3\id3.class

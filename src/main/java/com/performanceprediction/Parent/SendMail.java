@@ -72,7 +72,7 @@ public class SendMail extends HttpServlet {
 
             // Now set the actual message
             message.setText("Pease fill this form" + "\n" + "Student ID: " + id + "\n" + "Student Name:" + name
-                    + "\n" + "http://localhost:8080/PerformancePrediction/ParentInput");
+                    + "\n" + "http://localhost:8080/PerformancePrediction/ParentInput?id="+id);
 
             // Send message
         Transport.send(message);

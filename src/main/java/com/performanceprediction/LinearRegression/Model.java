@@ -75,7 +75,7 @@ public class Model {
         double absences = parameters.get("absences");
         double g1 = parameters.get("g1");
         double g2 = parameters.get("g2");
-        System.out.println("famsize" + paid);
+        System.out.println("famsize" + famsize);
 
         String searchQuery
                 = "select * from teacher_question tq inner join parent_question pq on tq.studentid=pq.studentid join students s on s.studentid=pq.studentid"

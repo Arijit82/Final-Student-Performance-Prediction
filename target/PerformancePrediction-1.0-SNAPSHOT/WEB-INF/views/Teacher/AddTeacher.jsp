@@ -19,9 +19,9 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h2>Teacher Information</h2>
         </div>
-        <div class="row">
+<!--        <div class="row">
             <div class="col-11"><img src="logo.png" class="rounded float-right" alt="logo.png"></div>
-        </div>
+        </div>-->
         <form action="AddNewTeacher" method="post">
 <!--            <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Teacher ID</label>
